@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../UI/button/Button";
 import ExpensesForm from "./ExpensesForm";
+import styled from "styled-components";
 
 const NewExpense = ({ addExpenseHandler }) => {
   const [state, setState] = useState(false);
@@ -10,23 +11,26 @@ const NewExpense = ({ addExpenseHandler }) => {
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: " #AD9BE9",
-        width: "50%",
-        padding: "30px",
-        borderRadius: "20px",
-      }}
-    >
+    <DivName>
       {state ? (
-        <ExpensesForm onClick={openAndCloseExpensesFormHandler} addExpenseHandler={addExpenseHandler} />
+        <ExpensesForm
+          onClick={openAndCloseExpensesFormHandler}
+          addExpenseHandler={addExpenseHandler}
+        />
       ) : (
         <Button onClick={openAndCloseExpensesFormHandler}>
           Добавить новый расход
         </Button>
       )}
-    </div>
+    </DivName>
   );
 };
 
 export default NewExpense;
+
+const DivName = styled.div`
+  background-color: #ad9be9;
+  width: 50%;
+  padding: 30px;
+  border-radius: 20px;
+`;

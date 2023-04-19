@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./App.css";
 import Expenses from "./components/expenses/Expenses";
 import NewExpense from "./components/newExpense/NewExpense";
+import styled from "styled-components";
 
 const productData = [
   {
@@ -39,15 +39,24 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <AppDiv>
       <NewExpense addExpenseHandler={addExpenseHandler} />
       <Expenses
         data={newProduct}
         setNewProduct={setNewProduct}
         onDelete={deleteExpense}
       />
-    </div>
+    </AppDiv>
   );
 }
 
 export default App;
+const AppDiv = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+`;
